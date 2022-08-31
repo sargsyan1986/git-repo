@@ -30,6 +30,10 @@ jobs:
     #      echo Add other actions to build,
      #     echo test, and deploy your project.
       # Login to DockerHub
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       
