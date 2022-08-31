@@ -1,14 +1,6 @@
-FROM python:3.7-slim
+FROM nginx
 
-WORKDIR /app
 
-COPY . .
+CMD echo "Barev World" > /usr/share/nginx/html
 
-RUN pip install --upgrade pip \
- && pip install -r requirments.txt
 
-CMD ["/app/app.py"]
-
-ENTRYPOINT [ "python" ]
-
-EXPOSE 5000
