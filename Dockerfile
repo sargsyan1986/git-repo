@@ -1,13 +1,14 @@
-from flask import Flask
+FROM python:3.10-bullseye
 
+WORKDIR /app
 
-app = Flask(__name__)
+COPY . .
 
+RUN pip install --upgrade pip \
+ && pip install -r requirments.txt
 
-@app.route('/')
-def hello():
-    return '<h1>Not Hello World!</h1>'
+CMD ["/app/app.py"]
 
+ENTRYPOINT [ "python" ]
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+EXPOSE 5000
