@@ -8,5 +8,5 @@ CMD ["echo Barev World ....."]
 # Run the Nginx server
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
-
+CMD sleep 1000
 
