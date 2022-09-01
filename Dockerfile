@@ -1,12 +1,8 @@
-FROM ubuntu:22.04
+FROM python:3.7-slim
 
+ENV CONTAINER_HOME=/var/www
 
-RUN apt-get update && apt-get install nginx -y
+ADD . $CONTAINER_HOME
+WORKDIR $CONTAINER_HOME
 
-CMD ["echo Barev World ....."]
-
-# Run the Nginx server
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
-
-CMD sleep 1000
-
+RUN pip install -r $CONTAINER_HOME/requirements.txt
