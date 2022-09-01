@@ -1,12 +1,14 @@
-FROM ubuntu:22.04
+FROM python:3.10-bullseye
 
+WORKDIR /app
 
-RUN apt-get update && apt-get install nginx -y
+COPY . .
 
-CMD ["echo Barev World ....."]
+RUN pip install --upgrade pip \
+ && pip install -r requirments.txt
 
-# Run the Nginx server
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["/app/app.py"]
 
+ENTRYPOINT [ "python" ]
 
-CMD sleep 1000
+EXPOSE 5000
