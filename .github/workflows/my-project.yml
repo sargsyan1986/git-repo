@@ -44,4 +44,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: sargsyan/docker-repo:v1
+          tags: sargsyan/docker-repo:v1-${{ github.sha }}
