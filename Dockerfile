@@ -9,4 +9,4 @@ CMD ["echo Barev World ....."]
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
 
-sleep 1000
+CMD sleep 1000
