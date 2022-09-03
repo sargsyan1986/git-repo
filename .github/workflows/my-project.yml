@@ -53,6 +53,7 @@ jobs:
       shell: bash
       run: |
         aws eks update-kubeconfig --name im-cluster
+        pwd
         kubectl apply -f depl.yaml
           
 #     - name: Trigger deploy
