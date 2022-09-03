@@ -53,7 +53,7 @@ jobs:
       shell: bash
       run: |
         aws eks update-kubeconfig --name im-cluster
-        kubectl apply -f deply.yaml
+        kubectl apply -f depl.yaml
           
 #     - name: Trigger deploy
 #       uses: Consensys/kubernetes-action@master
