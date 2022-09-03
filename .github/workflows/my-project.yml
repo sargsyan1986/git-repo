@@ -41,6 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: CI-part
     steps:
+    - uses: actions/checkout@v3
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -53,7 +54,6 @@ jobs:
       shell: bash
       run: |
         aws eks update-kubeconfig --name im-cluster
-        pwd
         ls -la
         kubectl apply -f depl.yaml
           
