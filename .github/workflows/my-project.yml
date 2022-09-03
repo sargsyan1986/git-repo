@@ -54,7 +54,7 @@ jobs:
       shell: bash
       run: |
         aws eks update-kubeconfig --name im-cluster
-        ls -la
+        kubectl create secret docker-registry regcred --docker-server=docker.io --docker-username=${{ secrets.DOCKER_USERNAME }} --docker-password=${{ secrets.DOCKER_PASSWORD }} || true
         kubectl apply -f depl.yaml
           
 #     - name: Trigger deploy
