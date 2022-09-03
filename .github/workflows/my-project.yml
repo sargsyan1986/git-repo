@@ -7,6 +7,9 @@ on:
   # Triggers the workflow on push request event but only for the "main" branch
   push:
     branches: [ "main" ]
+    paths-ignor:
+    - '.github/**'
+    - 'README.md'
 
 env:
   AWS_DEFAULT_REGION: us-east-1
