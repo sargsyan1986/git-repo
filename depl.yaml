@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: im-conteiner
-        image: sargsyan/docker-repo:v1-15b4d000ab9c42dacb64739472423d763079bb24
+        image: $IMAGE:$IMAGE_TAG
         resources:
           # limits:
           #   memory: "128Mi"

@@ -52,7 +52,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-        aws-region: $AWS_DEFAULT_REGION
+        aws-region: ${{ env.AWS_DEFAULT_REGION }}
         
         
     - name: run commands
@@ -60,7 +60,8 @@ jobs:
       run: |
         aws eks update-kubeconfig --name im-cluster
         kubectl create secret docker-registry regcred --docker-server=docker.io --docker-username=${{ secrets.DOCKER_USERNAME }} --docker-password=${{ secrets.DOCKER_PASSWORD }} || true
-        kubectl apply -f depl.yaml
+        envsubst < depl.yaml > ${{ github.sha }}.yaml
+        kubectl apply -f ${{ github.sha }}.yaml
           
 #     - name: Trigger deploy
 #       uses: Consensys/kubernetes-action@master
